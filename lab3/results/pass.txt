@@ -1,0 +1,51 @@
+﻿time="2026-11-21T18:42:34+08:00" level=warning msg="Error from API server" error="listen tcp 127.0.0.1:6565: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate>=0.90' rate=98.62%
+
+    http_req_duration{name:cart}
+    ✓ 'p(95)<25' p(95)=4ms
+
+    http_req_duration{name:report}
+    ✓ 'p(95)<450' p(95)=397.65ms
+
+    http_req_failed{name:pay}
+    ✓ 'rate<0.08' rate=4.12%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......................: 2763   45.185993/s
+    checks_succeeded...................: 98.62% 2725 out of 2763
+    checks_failed......................: 1.37%  38 out of 2763
+
+    ✓ cart 200
+    ✓ report 200
+    ✗ pay 200
+      ↳  95% — ✓ 883 / ✗ 38
+
+    HTTP
+    http_req_duration.......................................................: avg=104.43ms min=0s       med=1.58ms   max=416.83ms p(90)=349.22ms p(95)=377.64ms
+      { expected_response:true }............................................: avg=105.87ms min=0s       med=1.59ms   max=416.83ms p(90)=349.56ms p(95)=378.18ms
+      { name:cart }.........................................................: avg=2.81ms   min=0s       med=1.3ms    max=67.35ms  p(90)=2.18ms   p(95)=4ms     
+      { name:report }.......................................................: avg=309.03ms min=202.54ms med=309.68ms max=416.83ms p(90)=387.56ms p(95)=397.65ms
+    http_req_failed.........................................................: 1.37%  38 out of 2763
+      { name:pay }..........................................................: 4.12%  38 out of 921
+    http_reqs...............................................................: 2763   45.185993/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.31s    min=1.2s     med=1.31s    max=1.48s    p(90)=1.39s    p(95)=1.4s    
+    iterations..............................................................: 921    15.061998/s
+    vus.....................................................................: 3      min=3          max=20
+    vus_max.................................................................: 20     min=20         max=20
+
+    NETWORK
+    data_received...........................................................: 524 kB 8.6 kB/s
+    data_sent...............................................................: 246 kB 4.0 kB/s
+
+
+
+exit=0
